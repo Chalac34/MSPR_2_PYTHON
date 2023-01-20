@@ -28,23 +28,28 @@ def Scan_IP(reseau,debut,fin):
         print(completion)
         resp = ping(reseau+"."+str(ip))
         if resp == False:
-            text.insert(tk.END, f"{datetime.now()} {completion}%\n")
+            current_time=datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            text.insert(tk.END, f"{current_time} {completion}%\n")
             root.update()
             continue
         else:
-            text.insert(tk.END, f"{datetime.now()} {completion}%\n")
+            current_time=datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            text.insert(tk.END, f"{current_time} {completion}%\n")
             IP_prise.append(f"{reseau}.{ip}")
             nombre_hote+=1
             root.update()
     if nombre_hote == 0:
-        text.insert(tk.END, f"{datetime.now()} \"Scan terminé \"Aucun hote trouvé\"")
+        current_time=datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        text.insert(tk.END, f"{current_time} \"Scan terminé \"Aucun hote trouvé\"")
         root.update()
     elif nombre_hote ==1:
-        text.insert(tk.END, f"{datetime.now()}\"Scan terminé 1 hote trouvé\"\n")
+        current_time=datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        text.insert(tk.END, f"{current_time}\"Scan terminé 1 hote trouvé\"\n")
         text.insert(tk.END, IP_prise)
         root.update()
     else:
-        text.insert(tk.END, f"{datetime.now()} Scan terminé {nombre_hote} hotes\n")
+        current_time=datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        text.insert(tk.END, f"{current_time} Scan terminé {nombre_hote} hotes\n")
         text.insert(tk.END, IP_prise)
         root.update()
 
@@ -67,15 +72,17 @@ def Scan_port(IP,debut,fin):
         sock.settimeout(5)
         result = sock.connect_ex((IP,port))
         if result == 0:
-            text.insert(tk.END, f"{datetime.now()} {completion}%\n")
-            text.insert(tk.END,f"{datetime.now()} Port {port} est ouvert en TCP.\ n")
+            current_time=datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            text.insert(tk.END, f"{current_time} {completion}%\n")
+            text.insert(tk.END,f"{current_time} Port {port} est ouvert en TCP.\ n")
             root.update()
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         sock.settimeout(5)
         result = sock.connect_ex((IP,port))
         if result == 0:
-            text.insert(tk.END, f"{datetime.now()} {completion}%\n")
-            text.insert(tk.END,f"{datetime.now()} Port {port} est ouvert en UDP.\n")
+            current_time=datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            text.insert(tk.END, f"{current_time} {completion}%\n")
+            text.insert(tk.END,f"{current_time} Port {port} est ouvert en UDP.\n")
             root.update()
     text.config(state="disable")
     sock.close()
@@ -91,7 +98,10 @@ def on_scan_ports():
 ####SpeedTest
 
 def Speedtest():
-    print("Speedtest en cours,Veuillez patientez...")
+    text.config(state="normal")
+    current_time=datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    text.insert(tk.END,f"{current_time} Speedtest en cours,Veuillez patientez... \n")
+    root.update()
     str_DL=""
     str_UP=""
     program_path = "C:\\Users\\b.dezord\\Desktop\\spped\\speedtest.exe"
@@ -102,8 +112,13 @@ def Speedtest():
              str_DL=line
         if 'Upload:' in line:
              str_UP=line
-    print(str_DL.split()[1]+str_DL.split()[2])
-    print(str_UP.split()[1]+str_DL.split()[2])
+    DL=str_DL.split()[1]+str_DL.split()[2]
+    UP=str_UP.split()[1]+str_DL.split()[2]
+    current_time=datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    text.insert(tk.END, f"{current_time} Vitesse de Download {DL}\n")
+    text.insert(tk.END, f"{current_time} Vitesse D'upload {UP}\n")
+    root.update()
+    text.config(state="disable")
 
 
 
@@ -141,4 +156,6 @@ text.config(state="disable")
 text.pack()
 
 root.mainloop()
+
+
 

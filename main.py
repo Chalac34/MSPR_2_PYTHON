@@ -13,7 +13,7 @@ from datetime import datetime
 import threading
 
 
-
+hostname=socket.gethostname()
 
 
 ######Scan_IP
@@ -21,7 +21,6 @@ def Scan_IP(reseau,debut,fin):
     nombre_hote=0
     i=0
     IP_prise=[]
-
     text.config(state="normal")
     text.config(font=("Sans", 12))
     text.tag_config("bold", font=("Sans", 12, "bold"))
@@ -54,7 +53,7 @@ def Scan_IP(reseau,debut,fin):
         root.update()
     else:
         current_time=datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        text.insert(tk.END, f"{current_time} Scan terminé {nombre_hote} hotes\n")
+        text.insert(tk.END, f"{current_time}@{hostname} Scan terminé {nombre_hote} hotes\n")
         text.insert(tk.END, IP_prise)
         root.update()
 
@@ -140,19 +139,25 @@ def Speedtest():
 
     ###Partie du Download
     current_time=datetime.now().strftime("%H:%M:%S")
-    text.insert(tk.END,f"{current_time} ", "italic")
+    text.insert(tk.END,f"{current_time}     {hostname} ", "italic")
     text.insert(tk.END,f"Vitesse de Download ")
     text.insert(tk.END,f"{DL}\n", "bold")
     root.update()
 
     ###Partie du Upload
-    text.insert(tk.END,f"{current_time} ", "italic")
+    text.insert(tk.END,f"{current_time}     {hostname} ", "italic")
     text.insert(tk.END,f"Vitesse D'upload ")
     text.insert(tk.END,f"{UP}\n", "bold")
     root.update()
     text.config(state="disable")
 
-
+def test():
+    text.config(state="normal")
+    text.config(font=("Sans", 12))
+    text.tag_config("bold", font=("Sans", 12, "bold"))
+    text.tag_config("italic", font=("Sans", 12, "italic"))
+    current_time=datetime.now().strftime("%H:%M:%S")
+    text.insert(tk.END,f"{current_time}     {hostname} \n", "italic")
 
 
 
@@ -176,30 +181,33 @@ root.wm_iconbitmap("C:\\Users\\b.dezord\\Desktop\\SEMAOS.ico")
 
 ####BOUTONS####
 
-
+###Bouton Test###
+bouton_test= tk.Button(root, text="Test", command=test, width = 20, height = 10)
+bouton_test.pack(side='top', anchor='center')
 ####Bouton Scan SPEEDTEST
 
-speedtest_button = tk.Button(root, text="SpeedTest", command=Speedtest)
+speedtest_button = tk.Button(root, text="SpeedTest", command=Speedtest, width = 20, height = 10)
 
-speedtest_button.pack()
+speedtest_button.pack(side='top', anchor='center')
 #####
 ###Bouton Scan_Port
-scan_button = tk.Button(root, text="Scan Ports", command=on_scan_ports)
+scan_button = tk.Button(root, text="Scan Ports", command=on_scan_ports, width = 20, height = 10)
 
-scan_button.pack()
+scan_button.pack(side='top', anchor='center')
 ###
 
 
 ####Bouton Scan IP
 
-scan_IP_button = tk.Button(root, text="Scan IP", command=on_scan_ip)
-scan_IP_button.pack()
+scan_IP_button = tk.Button(root, text="Scan IP", command=on_scan_ip, width = 20, height = 10)
+scan_IP_button.pack(side='top', anchor='center')
 ########
 
 
 
 text = tk.Text(root)
 text.config(state="disable")
+text.config(bg='#1e1e29', fg='#e0e1e6')
 text.pack()
 
 root.mainloop()

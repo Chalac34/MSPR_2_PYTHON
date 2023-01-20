@@ -21,7 +21,12 @@ def Scan_IP(reseau,debut,fin):
     nombre_hote=0
     i=0
     IP_prise=[]
+
     text.config(state="normal")
+    text.config(font=("Sans", 12))
+    text.tag_config("bold", font=("Sans", 12, "bold"))
+    text.tag_config("italic", font=("Sans", 12, "italic"))
+
     for ip in range(debut,fin+1):
         completion=i*(100//(fin-debut))
         i+=1
@@ -64,6 +69,10 @@ def on_scan_ip():
 ####Scan Ports Reseau
 def Scan_port(IP,debut,fin):
     text.config(state="normal")
+    text.config(font=("Sans", 12))
+    text.tag_config("bold", font=("Sans", 12, "bold"))
+    text.tag_config("italic", font=("Sans", 12, "italic"))
+
     i=0
     for port in range(debut,fin+1):
         i+=1
@@ -72,17 +81,21 @@ def Scan_port(IP,debut,fin):
         sock.settimeout(5)
         result = sock.connect_ex((IP,port))
         if result == 0:
-            current_time=datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-            text.insert(tk.END, f"{current_time} {completion}%\n")
-            text.insert(tk.END,f"{current_time} Port {port} est ouvert en TCP.\ n")
+            current_time=datetime.now().strftime("%H:%M:%S")
+            text.insert(tk.END,f"{current_time} ","italic")
+            text.insert(tk.END, f"{completion}%\n")
+            text.insert(tk.END,f"{current_time} ","italic")
+            text.insert(tk.END,f"Port {port} est ouvert en TCP.\ n")
             root.update()
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         sock.settimeout(5)
         result = sock.connect_ex((IP,port))
         if result == 0:
-            current_time=datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-            text.insert(tk.END, f"{current_time} {completion}%\n")
-            text.insert(tk.END,f"{current_time} Port {port} est ouvert en UDP.\n")
+            current_time=datetime.now().strftime("%H:%M:%S")
+            text.insert(tk.END,f"{current_time} ","italic")
+            text.insert(tk.END, f"{completion}%\n")
+            text.insert(tk.END,f"{current_time} ","italic")
+            text.insert(tk.END,f"Port {port} est ouvert en UDP.\n")
             root.update()
     text.config(state="disable")
     sock.close()
@@ -98,25 +111,44 @@ def on_scan_ports():
 ####SpeedTest
 
 def Speedtest():
+    #Parametrage du texte
     text.config(state="normal")
-    current_time=datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    text.insert(tk.END,f"{current_time} Speedtest en cours,Veuillez patientez... \n")
+    text.config(font=("Sans", 12))
+    text.tag_config("bold", font=("Sans", 12, "bold"))
+    text.tag_config("italic", font=("Sans", 12, "italic"))
+
+    current_time=datetime.now().strftime("%H:%M:%S")
+    text.insert(tk.END,f"{current_time} ","italic")
+    text.insert(tk.END,"Speedtest en cours,Veuillez patientez... \n")
     root.update()
+
     str_DL=""
     str_UP=""
     program_path = "C:\\Users\\b.dezord\\Desktop\\spped\\speedtest.exe"
+
     result = subprocess.run(program_path, shell=True, capture_output=True, text=True)
     output = result.stdout.split('\n')
+
     for line in output:
         if 'Download:' in line:
              str_DL=line
         if 'Upload:' in line:
              str_UP=line
+
     DL=str_DL.split()[1]+str_DL.split()[2]
     UP=str_UP.split()[1]+str_DL.split()[2]
-    current_time=datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    text.insert(tk.END, f"{current_time} Vitesse de Download {DL}\n")
-    text.insert(tk.END, f"{current_time} Vitesse D'upload {UP}\n")
+
+    ###Partie du Download
+    current_time=datetime.now().strftime("%H:%M:%S")
+    text.insert(tk.END,f"{current_time} ", "italic")
+    text.insert(tk.END,f"Vitesse de Download ")
+    text.insert(tk.END,f"{DL}\n", "bold")
+    root.update()
+
+    ###Partie du Upload
+    text.insert(tk.END,f"{current_time} ", "italic")
+    text.insert(tk.END,f"Vitesse D'upload ")
+    text.insert(tk.END,f"{UP}\n", "bold")
     root.update()
     text.config(state="disable")
 
@@ -127,8 +159,23 @@ def Speedtest():
 
 ###Titre de la page
 root = tk.Tk()
-root.title("SEMALYNK")
+root.title("SemaOS")
 ####
+
+
+####LOGO###
+root.wm_iconbitmap("C:\\Users\\b.dezord\\Desktop\\SEMAOS.ico")
+
+
+
+
+
+
+
+
+
+####BOUTONS####
+
 
 ####Bouton Scan SPEEDTEST
 

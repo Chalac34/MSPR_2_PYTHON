@@ -1,0 +1,4 @@
+Pour le speedtest on doit installer au préalable l'application speetest-cli
+https://www.speedtest.net/fr/apps/cli
+Pour creer L'exe il faut utiliser auto-py-to-exe qui faut lancer a partir de l'invite de commande
+auto-py-to-exe

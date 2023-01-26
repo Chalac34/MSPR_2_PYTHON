@@ -1,3 +1,5 @@
+# -*- coding: utf-8-sig -*-
+
 import ping3
 import tkinter
 import socket
@@ -12,6 +14,12 @@ from datetime import datetime
 import threading
 from tkinter import ttk
 
+#A FAIRE
+#Changer les chemin absolu en relatif
+#Essayer de mettre les fonction dans un fichier a part
+#Fonction de reboot
+#Optimisation
+#Gestion d'erreur pour le SpeedTest
 
 hostname=socket.gethostname()
 
@@ -62,6 +70,7 @@ def Scan_IP(reseau,debut,fin):
             continue
         else:
             IP_prise.append(f"{reseau}.{ip}")
+            text.insert(tk.END, f"IP prise {reseau}.{ip} ","bold")
             nombre_hote+=1
             root.update()
     if nombre_hote == 0:
@@ -163,7 +172,7 @@ def Speedtest():
     root.update()
     str_DL=""
     str_UP=""
-    program_path = "C:\\Users\\b.dezord\\Desktop\\spped\\speedtest.exe"
+    program_path = ".\\speedtest\\speedtest.exe"
 
     result = subprocess.run(program_path, shell=True, capture_output=True, text=True)
     output = result.stdout.split('\n')
@@ -184,6 +193,7 @@ def Speedtest():
     Template()
     text.insert(tk.END,f" {DL}", "bold")
     root.update()
+    print("ok4")
     ###Partie du Upload
     Template()
     text.insert(tk.END,f" Vitesse D'upload  ")
@@ -212,7 +222,8 @@ def Template():
 
 
 ####LOGO###
-root.wm_iconbitmap("C:\\Users\\b.dezord\\Desktop\\SEMAOS.ico")
+
+root.wm_iconbitmap(".\\image\\SEMAOS.ico")
 
 ####BOUTONS####
 
@@ -248,6 +259,7 @@ text.pack()
 
 
 root.mainloop()
+
 
 
 

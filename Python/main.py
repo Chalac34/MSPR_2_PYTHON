@@ -161,14 +161,12 @@ def Speedtest():
     progress.start()
     text.insert(tk.END," Speedtest en cours,Veuillez patientez... ")
     root.update()
-    print("ok1")
     str_DL=""
     str_UP=""
     program_path = "C:\\Users\\b.dezord\\Desktop\\spped\\speedtest.exe"
 
     result = subprocess.run(program_path, shell=True, capture_output=True, text=True)
     output = result.stdout.split('\n')
-    print("ok2")
     update_progress()
 
     for line in output:
@@ -176,7 +174,6 @@ def Speedtest():
              str_DL=line
         if 'Upload:' in line:
              str_UP=line
-    print("ok3")
     DL=str_DL.split()[1]+str_DL.split()[2]
     UP=str_UP.split()[1]+str_DL.split()[2]
     progress.stop()
@@ -187,7 +184,6 @@ def Speedtest():
     Template()
     text.insert(tk.END,f" {DL}", "bold")
     root.update()
-    print("ok4")
     ###Partie du Upload
     Template()
     text.insert(tk.END,f" Vitesse D'upload  ")

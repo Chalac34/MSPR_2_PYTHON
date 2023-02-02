@@ -1,0 +1,228 @@
+
+17:29:45 PC-TEC-RH-1019 : Speedtest en cours,Veuillez patientez... 
+17:30:11 PC-TEC-RH-1019 : Vitesse de Download 
+17:30:11 PC-TEC-RH-1019 : 801.60Mbps
+17:30:11 PC-TEC-RH-1019 : Vitesse D'upload  
+17:30:11 PC-TEC-RH-1019 : 794.20Mbps
+debutmillieu
+17:45:01 PC-TEC-RH-1019 :Port 79 est ouvert en UDP.millieu
+17:45:07 PC-TEC-RH-1019 :Port 80 est ouvert en UDP.millieu
+17:45:13 PC-TEC-RH-1019 :Port 81 est ouvert en UDP.
+17:45:13 PC-TEC-RH-1019 :Port [] en TCP.
+17:45:13 PC-TEC-RH-1019 :Port [79, 80, 81] en UDP.
+
+17:47:24 PC-TEC-RH-1019 : 0%IP prise 10.230.0.1 
+17:47:25 PC-TEC-RH-1019 : 10%IP prise 10.230.0.2 
+17:47:26 PC-TEC-RH-1019 : 20%IP prise 10.230.0.3 
+17:47:27 PC-TEC-RH-1019 : 30%IP prise 10.230.0.4 
+17:47:28 PC-TEC-RH-1019 : 40%
+17:47:32 PC-TEC-RH-1019 : 50%
+17:47:36 PC-TEC-RH-1019 : 60%
+17:47:40 PC-TEC-RH-1019 : 70%
+17:47:44 PC-TEC-RH-1019 : 80%
+17:47:48 PC-TEC-RH-1019 : 90%IP prise 10.230.0.10 
+17:47:48 PC-TEC-RH-1019 :"Scan terminé 5 hotes"
+['10.230.0.1', '10.230.0.2', '10.230.0.3', '10.230.0.4', '10.230.0.10']
+
+17:49:06 PC-TEC-RH-1019 : 0% IP prise 10.230.0.1 
+17:49:07 PC-TEC-RH-1019 : 10% IP prise 10.230.0.2 
+17:49:08 PC-TEC-RH-1019 : 20% IP prise 10.230.0.3 
+17:49:09 PC-TEC-RH-1019 : 30% IP prise 10.230.0.4 
+17:49:10 PC-TEC-RH-1019 : 40% 
+17:49:13 PC-TEC-RH-1019 : 50% 
+17:49:15 PC-TEC-RH-1019 : 60% 
+17:49:18 PC-TEC-RH-1019 : 70% 
+17:49:20 PC-TEC-RH-1019 : 80% 
+17:49:23 PC-TEC-RH-1019 : 90% IP prise 10.230.0.10 
+17:49:23 PC-TEC-RH-1019 :"Scan terminé 5 hotes"
+['10.230.0.1', '10.230.0.2', '10.230.0.3', '10.230.0.4', '10.230.0.10']
+
+14:17:07 PC-TEC-RH-1019 : 0% IP prise 10.230.0.1 
+14:17:07 PC-TEC-RH-1019 : 10% IP prise 10.230.0.2 
+14:17:07 PC-TEC-RH-1019 : 20% IP prise 10.230.0.3 
+14:17:07 PC-TEC-RH-1019 : 30% IP prise 10.230.0.4 
+14:17:07 PC-TEC-RH-1019 : 40% 
+14:17:08 PC-TEC-RH-1019 : 50% 
+14:17:10 PC-TEC-RH-1019 : 60% 
+14:17:11 PC-TEC-RH-1019 : 70% 
+14:17:13 PC-TEC-RH-1019 : 80% 
+14:17:16 PC-TEC-RH-1019 : 90% IP prise 10.230.0.10 
+14:17:16 PC-TEC-RH-1019 :"Scan terminé 5 hotes"
+['10.230.0.1', '10.230.0.2', '10.230.0.3', '10.230.0.4', '10.230.0.10']
+
+14:45:12 PC-TEC-RH-1019 :
+14:45:13 PC-TEC-RH-1019 : Speedtest en cours,Veuillez patientez... 
+14:46:05 PC-TEC-RH-1019 : Vitesse de Download 
+14:46:05 PC-TEC-RH-1019 : 878.13Mbps
+14:46:05 PC-TEC-RH-1019 : Vitesse D'upload  
+14:46:05 PC-TEC-RH-1019 : 839.03Mbps
+
+14:45:12 PC-TEC-RH-1019 :
+14:45:13 PC-TEC-RH-1019 : Speedtest en cours,Veuillez patientez... 
+14:46:05 PC-TEC-RH-1019 : Vitesse de Download 
+14:46:05 PC-TEC-RH-1019 : 878.13Mbps
+14:46:05 PC-TEC-RH-1019 : Vitesse D'upload  
+14:46:05 PC-TEC-RH-1019 : 839.03Mbpsdebutmillieu
+14:46:45 PC-TEC-RH-1019 :Port 79 est ouvert en UDP.
+14:47:07 PC-TEC-RH-1019 :100%
+14:47:07 PC-TEC-RH-1019 :Port 80 est ouvert en TCP.millieu
+14:47:07 PC-TEC-RH-1019 :Port 80 est ouvert en UDP.millieu
+14:47:33 PC-TEC-RH-1019 :Port 81 est ouvert en UDP.
+14:47:33 PC-TEC-RH-1019 :Port [80] en TCP.
+14:47:33 PC-TEC-RH-1019 :Port [79, 80, 81] en UDP.
+
+14:48:20 PC-TEC-RH-1019 : 0% IP prise 10.230.0.1 
+14:48:20 PC-TEC-RH-1019 : 20% IP prise 10.230.0.2 
+14:48:20 PC-TEC-RH-1019 : 40% IP prise 10.230.0.3 
+14:48:20 PC-TEC-RH-1019 : 60% IP prise 10.230.0.4 
+14:48:20 PC-TEC-RH-1019 : 80% 
+14:48:21 PC-TEC-RH-1019 :"Scan terminé 4 hotes"
+['10.230.0.1', '10.230.0.2', '10.230.0.3', '10.230.0.4']
+
+10:44:46 PC-TEC-RH-1019 :
+10:44:47 PC-TEC-RH-1019 :
+10:45:03 PC-TEC-RH-1019 : 0% IP prise 10.230.0.1 
+10:45:03 PC-TEC-RH-1019 : 20% IP prise 10.230.0.2 
+10:45:03 PC-TEC-RH-1019 : 40% IP prise 10.230.0.3 
+10:45:03 PC-TEC-RH-1019 : 60% IP prise 10.230.0.4 
+10:45:03 PC-TEC-RH-1019 : 80% 
+10:45:06 PC-TEC-RH-1019 :"Scan terminé 4 hotes"
+['10.230.0.1', '10.230.0.2', '10.230.0.3', '10.230.0.4']
+
+11:10:09 PC-TEC-RH-1019 : 0% 
+11:10:09 PC-TEC-RH-1019 : 50% IP prise 10.230.0.2 
+11:10:09 PC-TEC-RH-1019 :"Scan terminé 1 hote trouvé"
+
+11:10:09 PC-TEC-RH-1019 :['10.230.0.2']
+
+12:26:07 PC-TEC-RH-1019 : 0% IP prise 10.230.0.1 
+12:26:07 PC-TEC-RH-1019 : 20% 
+12:26:07 PC-TEC-RH-1019 : 40% IP prise 10.230.0.3 
+12:26:07 PC-TEC-RH-1019 : 60% 
+12:26:07 PC-TEC-RH-1019 : 80% 
+12:26:08 PC-TEC-RH-1019 :"Scan terminé 2 hotes"
+['10.230.0.1', '10.230.0.3']
+
+12:41:05 PC-TEC-RH-1019 : 0% 
+12:41:05 PC-TEC-RH-1019 : 50% IP prise 10.230.0.2 
+12:41:05 PC-TEC-RH-1019 :"Scan terminé 1 hote trouvé"
+
+12:41:05 PC-TEC-RH-1019 :['10.230.0.2']
+
+12:59:27 PC-TEC-RH-1019 : 0% IP prise 10.230.0.1 
+12:59:27 PC-TEC-RH-1019 : 50% IP prise 10.230.0.2 
+12:59:27 PC-TEC-RH-1019 :"Scan terminé 2 hotes"
+['10.230.0.1', '10.230.0.2']
+
+14:19:10 PC-TEC-RH-1019 : Speedtest en cours,Veuillez patientez... 
+14:19:59 PC-TEC-RH-1019 : Vitesse de Download 
+14:19:59 PC-TEC-RH-1019 : 871.18Mbps
+14:19:59 PC-TEC-RH-1019 : Vitesse D'upload  
+14:19:59 PC-TEC-RH-1019 : 780.36Mbps
+
+14:22:45 PC-TEC-RH-1019 : Speedtest en cours,Veuillez patientez... 
+14:23:35 PC-TEC-RH-1019 : Vitesse de Download 
+14:23:35 PC-TEC-RH-1019 : 861.42Mbps
+14:23:35 PC-TEC-RH-1019 : Vitesse D'upload  
+14:23:35 PC-TEC-RH-1019 : 853.72Mbps
+
+15:46:30 PC-TEC-RH-1019 : Speedtest en cours,Veuillez patientez... 
+15:47:20 PC-TEC-RH-1019 : Vitesse de Download 
+15:47:20 PC-TEC-RH-1019 : 913.77Mbps
+15:47:20 PC-TEC-RH-1019 : Vitesse D'upload  
+15:47:20 PC-TEC-RH-1019 : 709.02Mbps
+
+15:54:26 PC-TEC-RH-1019 : Speedtest en cours,Veuillez patientez... 
+15:55:13 PC-TEC-RH-1019 : Vitesse de Download 
+15:55:13 PC-TEC-RH-1019 : 785.37Mbps
+15:55:13 PC-TEC-RH-1019 : Vitesse D'upload  
+15:55:13 PC-TEC-RH-1019 : 811.19Mbps
+
+16:46:38 PC-TEC-RH-1019 : Speedtest en cours,Veuillez patientez... 
+16:47:26 PC-TEC-RH-1019 : Vitesse de Download 
+16:47:26 PC-TEC-RH-1019 : 812.68Mbps
+16:47:26 PC-TEC-RH-1019 : Vitesse D'upload  
+16:47:26 PC-TEC-RH-1019 : 802.45Mbps
+
+17:00:45 PC-TEC-RH-1019 : Speedtest en cours,Veuillez patientez... 
+17:01:39 PC-TEC-RH-1019 : Vitesse de Download 
+17:01:39 PC-TEC-RH-1019 : 933.61Mbps
+17:01:39 PC-TEC-RH-1019 : Vitesse D'upload  
+17:01:39 PC-TEC-RH-1019 : 862.33Mbps
+
+11:13:50 PC-TEC-RH-1019 : Speedtest en cours,Veuillez patientez... 
+11:14:44 PC-TEC-RH-1019 : Vitesse de Download 
+11:14:44 PC-TEC-RH-1019 : 804.36Mbps
+11:14:44 PC-TEC-RH-1019 : Vitesse D'upload  
+11:14:44 PC-TEC-RH-1019 : 768.34Mbps
+
+11:13:50 PC-TEC-RH-1019 : Speedtest en cours,Veuillez patientez... 
+11:14:44 PC-TEC-RH-1019 : Vitesse de Download 
+11:14:44 PC-TEC-RH-1019 : 804.36Mbps
+11:14:44 PC-TEC-RH-1019 : Vitesse D'upload  
+11:14:44 PC-TEC-RH-1019 : 768.34Mbps
+11:24:06 PC-TEC-RH-1019 : 0% IP prise 10.230.0.1 
+11:24:06 PC-TEC-RH-1019 : 50% IP prise 10.230.0.2 
+11:24:06 PC-TEC-RH-1019 :"Scan terminé 2 hotes"
+['10.230.0.1', '10.230.0.2']
+
+12:00:20 PC-TEC-RH-1019 : Speedtest en cours,Veuillez patientez... 
+12:01:08 PC-TEC-RH-1019 : Vitesse de Download 
+12:01:08 PC-TEC-RH-1019 : 911.04Mbps
+12:01:08 PC-TEC-RH-1019 : Vitesse D'upload  
+12:01:08 PC-TEC-RH-1019 : 873.87Mbps
+
+12:15:46 PC-TEC-RH-1019 : Speedtest en cours,Veuillez patientez... 
+12:16:33 PC-TEC-RH-1019 : Vitesse de Download 
+12:16:33 PC-TEC-RH-1019 : 807.58Mbps
+12:16:33 PC-TEC-RH-1019 : Vitesse D'upload  
+12:16:33 PC-TEC-RH-1019 : 883.85Mbps
+
+12:18:54 PC-TEC-RH-1019 : Speedtest en cours,Veuillez patientez... 
+12:19:45 PC-TEC-RH-1019 : Vitesse de Download 
+12:19:45 PC-TEC-RH-1019 : 920.06Mbps
+12:19:45 PC-TEC-RH-1019 : Vitesse D'upload  
+12:19:45 PC-TEC-RH-1019 : 812.00Mbps
+
+12:28:57 PC-TEC-RH-1019 : Speedtest en cours,Veuillez patientez... 
+12:29:42 PC-TEC-RH-1019 : Vitesse de Download 
+12:29:42 PC-TEC-RH-1019 : 757.44Mbps
+12:29:42 PC-TEC-RH-1019 : Vitesse D'upload  
+12:29:42 PC-TEC-RH-1019 : 817.33Mbps
+
+12:42:18 PC-TEC-RH-1019 : Speedtest en cours,Veuillez patientez... 
+12:43:11 PC-TEC-RH-1019 : Vitesse de Download 
+12:43:11 PC-TEC-RH-1019 : 817.83Mbps
+12:43:11 PC-TEC-RH-1019 : Vitesse D'upload  
+12:43:11 PC-TEC-RH-1019 : 868.03Mbps
+debutmillieu
+14:33:43 PC-TEC-RH-1019 :Port 79 est ouvert en UDP.
+14:34:05 PC-TEC-RH-1019 :100%
+14:34:05 PC-TEC-RH-1019 :Port 80 est ouvert en TCP.millieu
+14:34:05 PC-TEC-RH-1019 :Port 80 est ouvert en UDP.millieu
+14:34:32 PC-TEC-RH-1019 :Port 81 est ouvert en UDP.
+14:34:32 PC-TEC-RH-1019 :Port [80] en TCP.
+14:34:32 PC-TEC-RH-1019 :Port [79, 80, 81] en UDP.
+
+14:36:43 PC-TEC-RH-1019 : 0% IP prise 10.230.0.1 
+14:36:43 PC-TEC-RH-1019 : 20% IP prise 10.230.0.2 
+14:36:44 PC-TEC-RH-1019 : 40% IP prise 10.230.0.3 
+14:36:44 PC-TEC-RH-1019 : 60% IP prise 10.230.0.4 
+14:36:44 PC-TEC-RH-1019 : 80% 
+14:36:46 PC-TEC-RH-1019 :"Scan terminé 4 hotes"
+['10.230.0.1', '10.230.0.2', '10.230.0.3', '10.230.0.4']
+
+14:36:43 PC-TEC-RH-1019 : 0% IP prise 10.230.0.1 
+14:36:43 PC-TEC-RH-1019 : 20% IP prise 10.230.0.2 
+14:36:44 PC-TEC-RH-1019 : 40% IP prise 10.230.0.3 
+14:36:44 PC-TEC-RH-1019 : 60% IP prise 10.230.0.4 
+14:36:44 PC-TEC-RH-1019 : 80% 
+14:36:46 PC-TEC-RH-1019 :"Scan terminé 4 hotes"
+['10.230.0.1', '10.230.0.2', '10.230.0.3', '10.230.0.4']debutmillieu
+14:37:28 PC-TEC-RH-1019 :Port 79 est ouvert en UDP.
+14:37:29 PC-TEC-RH-1019 :100%
+14:37:29 PC-TEC-RH-1019 :Port 80 est ouvert en TCP.millieu
+14:37:29 PC-TEC-RH-1019 :Port 80 est ouvert en UDP.millieu
+14:37:34 PC-TEC-RH-1019 :Port 81 est ouvert en UDP.
+14:37:34 PC-TEC-RH-1019 :Port [80] en TCP.
+14:37:34 PC-TEC-RH-1019 :Port [79, 80, 81] en UDP.

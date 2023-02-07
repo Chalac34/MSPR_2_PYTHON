@@ -313,19 +313,22 @@ async def get_host_name_from_ip(ip_address):
         return None
 
 
+###Merci Sani#1234###
 async def Remplir_listbox(listbox, debut, fin):
     network_address = await get_network_address()
     addr_reseau = network_address.split(".")[0]+"."+network_address.split(".")[1]+"."+network_address.split(".")[2]
-    for ip in range(debut, fin + 1):
-         IP = addr_reseau + "." + str(ip)
-         try:
-            response = await aioping.ping(IP,1)
-            if response:
-                nom = await get_host_name_from_ip(IP)
-                if nom:
-                    listbox.insert(tk.END, str(nom) + ":  " + str(IP))
-         except TimeoutError:
-             print("TimeOut")
-             continue
-         else:
-             pass
+    coros = []
+    for ip in range(debut, fin+1):
+        IP = addr_reseau + "." + str(ip)
+        coros.append(do_ping(IP,listbox))
+    await asyncio.gather(*coros)
+
+async def do_ping(IP, listbox):
+    try:
+        response = await aioping.ping(IP, 1)
+        if response:
+            nom = await get_host_name_from_ip(IP)
+            if nom:
+                listbox.insert(tk.END, str(nom) + ":  " + str(IP))
+    except TimeoutError:
+        print('Timeout')

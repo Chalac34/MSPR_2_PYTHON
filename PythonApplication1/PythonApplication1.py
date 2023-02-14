@@ -1,11 +1,9 @@
-﻿# -*- coding: utf-8-sig -*-
+# -*- coding: utf-8-sig -*-
 
-from pickle import GLOBAL
 import socket
 from subprocess import list2cmdline
 import tkinter as tk
 from tkinter import ttk
-from turtle import width
 import CP
 import sqlite3
 import socket
@@ -36,7 +34,6 @@ def Lancement_Programme():
 
     # Boucle pour afficher les données dans un label
     for result in results:
-        ip_pub = result[0]
         up_speed = result[1]
         dl_speed = result[2]
 
@@ -74,18 +71,26 @@ def Lancement_Programme():
     scan_button = tk.Button(grid, text="Scan Ports", command=lambda: CP.on_scan_ports(text, Page, progress), width=20, height=3, bg="#1B97C6", bd=8)
     scan_button.grid(row=2, column=1)
 
-    scan_IP_button = tk.Button(grid, text="Scan IP", command=lambda: CP.on_scan_ip(text, Page, progress), width=20, height=3, bg="#B991A3", bd=8)
+    scan_IP_button = tk.Button(grid, text="Scan IP", command=lambda: CP.Scan_IP_Choice(text, Page, progress), width=20, height=3, bg="#B991A3", bd=8)
     scan_IP_button.grid(row=3, column=1)
 
-    button = tk.Button(grid, text="TEST", command=lambda: CP.qualite_connexion(), width=20, height=3, bg="#B991A3", bd=8)
+   
+
+    button = tk.Button(grid, text="TEST", command=lambda: CP.Scan_IP_Choice(text, Page, progress), width=20, height=3, bg="#B991A3", bd=8)
     button.grid(row=4, column=1)
     
+    
+
     # Centrer la grille
     grid.pack(side="top", fill="both", expand=True)
     grid.grid_rowconfigure(0, weight=1)
     grid.grid_columnconfigure(0, weight=1)
 
 
+    Latence=tk.Label()
+    Upload_label=tk.Label()
+    Download=tk.Label()
+    Connexion_value=tk.Label()
     #LABEL_TEXT
     async def LABEL():
         Inf=tk.Label(Page,text="DERNIERE INFO ",font=("Arial",10,"bold"))
@@ -116,32 +121,35 @@ def Lancement_Programme():
 
         Version_OS=tk.Label(Page,text="Version: BETA 0.7",font=("Arial",10,"bold"))
         Version_OS.place(x=780, y=400)
+
+        
     asyncio.run(LABEL())
+    
+    
     ###Zone de texte
 
     text.config(state="disable")
     text.config(bg='#1e1e29', fg='#e0e1e6')
     text.pack()
     #####
+    
+
+    ###Maj Label
+    MaJ_Button=tk.Button(Page,text="Maj Info",command=lambda:CP.MaJ_Label(Upload_label,Download,Latence,Connexion_value,Page), width=20, height=3, bg="#B991A3", bd=8)
+    MaJ_Button.place(x=700, y=300)
 
 
-    def show_coords(event):
-        x = event.x
-        y = event.y
-        print("Coords: ({}, {})".format(x, y))
 
-
-
-    def restart():
-        Page.destroy()
-        Lancement_Programme()
 
     ##Bouton de redémarrage##
     restart_button = tk.Button(grid, text="Relancer", command=lambda: restart(), width=20, height=3, bg="red", bd=8)
     restart_button.grid(row=0, column=1)
 
+   
     scrollbar = Scrollbar()
-    
+    def restart():
+        Page.destroy()
+        Lancement_Programme()   
     
 
     listbox = Listbox(Page, yscrollcommand=scrollbar.set)
@@ -154,12 +162,12 @@ def Lancement_Programme():
     scrollbar.place(x=0, y=0)
 
     #Ajouter des éléments à la liste
-    asyncio.run(CP.Remplir_listbox(listbox,1,100))
+    asyncio.run(CP.Remplir_listbox(listbox,1,254))
 
 
-    Page.bind("<Button-1>", show_coords)
 
     Page.resizable(False, False)
     Page.mainloop()
+
 
 Lancement_Programme()

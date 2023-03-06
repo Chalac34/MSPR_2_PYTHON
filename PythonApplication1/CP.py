@@ -1,25 +1,16 @@
 # -*- coding: utf-8-sig -*-
 
-from http.client import responses
-from optparse import Option
-from xmlrpc.client import DateTime
-import ping3
-import tkinter
 import socket
 from ping3 import ping
 import subprocess
 import time
 import tkinter as tk
-from tkinter import END, filedialog
 from tkinter import simpledialog
 import time
 from datetime import datetime
-import threading
 from tkinter import ttk
-import requests
 import sqlite3
 import asyncio
-import concurrent.futures
 import aioping
 import aiohttp
 import ipaddress
@@ -27,16 +18,18 @@ from tkinter import messagebox
 
 
 
+
 ###Test de latence###
-def latency_ping_test(host="google.fr"):
+def latency_ping_test(host="check-host.net"):
     ping = subprocess.Popen(["ping", "-n", "3", host], stdout = subprocess.PIPE, stderr = subprocess.PIPE)
-    out, error = ping.communicate()
+    out = ping.communicate()
     out_str=str(out)
     lines=out_str.splitlines()
     moyenne_ms=""
     for line in lines:   
         moyenne_ms=((line.split('\\r')[-2]).split(",")[-1]).split('=')[-1]
     return moyenne_ms
+
 
 
 ###Qualité de connexion###
@@ -66,27 +59,19 @@ def qualite_connexion():
     return color,msg
     
 
-###Fonction de log###
+##Fonction de log###
 def log_text(Page,Zone_de_Texte):
     with open(".\\log\\log.txt", "a") as f:
         f.write(Zone_de_Texte.get(1.0, tk.END))
 
 
-
-
-
-### Update Barre de progression###
-def update_progress(Barre_progression,Page,Percent):
-    #for i in range(200):
-        Barre_progression['value'] = Percent
-        Barre_progression.update()
         
 
 
 
 ######Scan_IP Complet
-def Scan_IP(reseau, masque, Zone_de_Texte, Page, Barre_progression):
-    #Barre_progression.start()
+def Scan_IP(reseau, masque, Zone_de_Texte, Page, ):
+   
     nombre_hote=0
     i=0
     IP_prise=[]
@@ -95,14 +80,14 @@ def Scan_IP(reseau, masque, Zone_de_Texte, Page, Barre_progression):
     Zone_de_Texte.tag_config("bold", font=("Sans", 10, "bold"))
     Zone_de_Texte.tag_config("italic", font=("Sans", 10, "italic"))
 
-    # Calculation of the IP range using the network address and subnet mask
+    # IP par rapport au masque
     net = ipaddress.IPv4Network(f'{reseau}/{masque}', strict=False)
     debut = int(net[1])
     fin = int(net[-2])
 
-    #Barre_progression.start()
+    
     for ip in range(debut, fin + 1):
-       #update_progress(Barre_progression,Page)
+       
         completion=i*(100//(fin+1-debut))
         i+=1
         Template(Zone_de_Texte)
@@ -121,30 +106,31 @@ def Scan_IP(reseau, masque, Zone_de_Texte, Page, Barre_progression):
         Template(Zone_de_Texte)
         Zone_de_Texte.insert(tk.END, f" \"Scan terminé \"Aucun hote trouvé\"\n")
         Page.update()
-        #Barre_progression.stop()
+        
     elif nombre_hote ==1:
         Template(Zone_de_Texte)
         Zone_de_Texte.insert(tk.END, f"\"Scan terminé 1 hote trouvé\"\n")
         Template(Zone_de_Texte)
         Zone_de_Texte.insert(tk.END, f"{IP_prise}")
         Page.update()
-       # Barre_progression.stop()
+       
     else:
         Template(Zone_de_Texte)
         Zone_de_Texte.insert(tk.END, f"\"Scan terminé {nombre_hote} hotes\"\n")
         Zone_de_Texte.insert(tk.END, f"{IP_prise}")
         Page.update()
-       # Barre_progression.stop()
+       
     log_text(Page,Zone_de_Texte)
     return IP_prise
-def on_scan_ip(Zone_de_Texte,Page,Barre_progression):
+
+def on_scan_ip(Zone_de_Texte,Page):
         reseau = simpledialog.askstring("Reseau", "Entrez le réseau (ex. 192.168.0.0):", parent=Page)
         masque = simpledialog.askstring("Masque", "Entrez le masque de sous-réseau (ex. 255.255.255.0) :", parent=Page)
-        Scan_IP(reseau, masque,  Zone_de_Texte, Page, Barre_progression)
+        Scan_IP(reseau, masque,  Zone_de_Texte, Page )
 
 ###Scan IP Partiel
-def Scan_IP2(reseau,debut,fin,Zone_de_Texte,Page,Barre_progression):
-    #Barre_progression.start()
+def Scan_IP2(reseau,debut,fin,Zone_de_Texte,Page):
+    
     nombre_hote=0
     i=0
     IP_prise=[]
@@ -153,9 +139,9 @@ def Scan_IP2(reseau,debut,fin,Zone_de_Texte,Page,Barre_progression):
     Zone_de_Texte.tag_config("bold", font=("Sans", 10, "bold"))
     Zone_de_Texte.tag_config("italic", font=("Sans", 10, "italic"))
 
-    #Barre_progression.start()
+    
     for ip in range(debut,fin+1):
-       #update_progress(Barre_progression,Page)
+       
         completion=i*(100//(fin+1-debut))
         i+=1
         Template(Zone_de_Texte)
@@ -172,38 +158,38 @@ def Scan_IP2(reseau,debut,fin,Zone_de_Texte,Page,Barre_progression):
         Template(Zone_de_Texte)
         Zone_de_Texte.insert(tk.END, f" \"Scan terminé \"Aucun hote trouvé\"\n")
         Page.update()
-        #Barre_progression.stop()
+        
     elif nombre_hote ==1:
         Template(Zone_de_Texte)
         Zone_de_Texte.insert(tk.END, f"\"Scan terminé 1 hote trouvé\"\n")
         Template(Zone_de_Texte)
         Zone_de_Texte.insert(tk.END, f"{IP_prise}")
         Page.update()
-       # Barre_progression.stop()
+       
     else:
         Template(Zone_de_Texte)
         Zone_de_Texte.insert(tk.END, f"\"Scan terminé {nombre_hote} hotes\"\n")
         Zone_de_Texte.insert(tk.END, f"{IP_prise}")
         Page.update()
-       # Barre_progression.stop()
+       
     log_text(Page,Zone_de_Texte)
     return IP_prise
-def on_scan_ip2(Zone_de_Texte,Page,Barre_progression):
+def on_scan_ip2(Zone_de_Texte,Page):
     reseau = simpledialog.askstring("Adresse Reseau", "Entrez le reseau (ex. 192.168.0):", parent=Page)
     debut = int(simpledialog.askstring("Debut", "Entrez le debut de plage IP :", parent=Page))
     fin = int(simpledialog.askstring("Fin", "Entrez la fin de plage IP :", parent=Page))
-    Scan_IP2(reseau, debut, fin,Zone_de_Texte,Page,Barre_progression)
+    Scan_IP2(reseau, debut, fin,Zone_de_Texte,Page)
  
 ###Choix du Scan IP
-def Scan_IP_Choice(Zone_de_Texte,Page,Barre_progression):
+def Scan_IP_Choice(Zone_de_Texte,Page):
     Choix=messagebox.askquestion("Type de Scan", "Scan complet ?")
     if Choix == 'yes':
-       on_scan_ip(Zone_de_Texte,Page,Barre_progression)
+       on_scan_ip(Zone_de_Texte,Page)
     else:
-       on_scan_ip2(Zone_de_Texte,Page,Barre_progression)
+       on_scan_ip2(Zone_de_Texte,Page)
 
 ####Scan Ports Reseau
-def Scan_port(IP,debut,fin,Zone_de_Texte,Page,Barre_progression):
+def Scan_port(IP,debut,fin,Zone_de_Texte,Page):
     Zone_de_Texte.config(state="normal")
     Zone_de_Texte.config(font=("Sans", 10))
     Zone_de_Texte.tag_config("bold", font=("Sans", 10, "bold"))
@@ -212,11 +198,11 @@ def Scan_port(IP,debut,fin,Zone_de_Texte,Page,Barre_progression):
     i=0
     TCP=[]
     UDP=[]
-    Barre_progression.start()
+   
     Zone_de_Texte.insert(tk.END,"debut")
     for port in range(debut,fin+1):
         i+=1
-        update_progress(Barre_progression,Page,100)
+        
         completion=i*(100//(fin-debut))
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         sock.settimeout(5)
@@ -242,23 +228,22 @@ def Scan_port(IP,debut,fin,Zone_de_Texte,Page,Barre_progression):
     Template(Zone_de_Texte)
     Zone_de_Texte.insert(tk.END,f"Port {UDP} en UDP.")
     Zone_de_Texte.config(state="disable")
-    Barre_progression.stop()
     Zone_de_Texte.insert(tk.END,"fini")
     sock.close()
     log_text(Page,Zone_de_Texte)
     return TCP,UDP
-def on_scan_ports(Zone_de_Texte,Page,Barre_progression):
+def on_scan_ports(Zone_de_Texte,Page):
     Host = simpledialog.askstring("host", "Entrez l'ip a scan  :", parent=Page)
     debut = int(simpledialog.askstring("Debut", "Entrez le debut de plage port :", parent=Page))
     fin = int(simpledialog.askstring("Fin", "Entrez la fin de plage port:", parent=Page))
-    Scan_port(Host, debut, fin,Zone_de_Texte,Page,Barre_progression)
+    Scan_port(Host, debut, fin,Zone_de_Texte,Page)
 
 
 
 ####SpeedTest
 DL=""
 UP=""
-def Speedtest(Zone_de_Texte,Page,Barre_progression):
+def Speedtest(Zone_de_Texte,Page,Barre_progression,label_upload,label_download):
     #Parametrage du texte
     Zone_de_Texte.config(state="normal")
     Zone_de_Texte.config(font=("Sans", 10))
@@ -279,7 +264,7 @@ def Speedtest(Zone_de_Texte,Page,Barre_progression):
 
     result = subprocess.run(program_path, shell=True, capture_output=True, text=True)
     output = result.stdout.split('\n')
-    update_progress(Barre_progression,Page,100)
+   
 
     for line in output:
         if 'Download:' in line:
@@ -288,7 +273,7 @@ def Speedtest(Zone_de_Texte,Page,Barre_progression):
              str_UP=line
     DL=str_DL.split()[1]+str_DL.split()[2]
     UP=str_UP.split()[1]+str_DL.split()[2]
-    Barre_progression.stop()
+    
 
     ###Partie du Download
     Template(Zone_de_Texte)
@@ -308,10 +293,25 @@ def Speedtest(Zone_de_Texte,Page,Barre_progression):
     Zone_de_Texte.config(state="disable")
     
     log_text(Page,Zone_de_Texte)
-    cursor.execute(f"INSERT INTO data (up_speed,dl_speed) VALUES ('{UP}','{DL}')")
+    cursor.execute(f"""UPDATE semabox 
+                       SET sem_inf_up_speed ='{UP}',
+                           sem_inf_dl_speed='{DL}'
+                       WHERE sem_client = (SELECT ent_id 
+                                           FROM entreprise
+                                           WHERE sem_client = ent_id)
+                       """ )
     conn.commit()
     conn.close()
 
+    label_upload.destroy()
+    label_upload=tk.Label(Page,text=f"Vitesse Upload: {UP}",font=("Arial",10,"bold"))
+    label_upload.place(x=780, y=60)
+    label_upload.update()
+
+    label_download.destroy()
+    label_download=tk.Label(Page,text=f"Vitesse de Download: {DL}",font=("Arial",10,"bold"))
+    label_download.place(x=780, y=80)
+    label_download.update()
 
 ##TEMPLATE
 def Template(Zone_de_Texte):
@@ -378,12 +378,13 @@ def Recuperation_donnees_DB(DataBase):
     conn = sqlite3.connect(DataBase)
     cursor = conn.cursor()
     conn.commit()
-    cursor.execute("SELECT * FROM data")
+    cursor.execute("SELECT * FROM semabox")
     results = cursor.fetchall()
     conn.close()
     return results
 
-def MaJ_Label(Upload,Download,Latence,Connexion_Value,Page):
+def MaJ_Label(Upload_label,Download_label,Latence,Connexion_Value,Page):
+    start=time.time()
     color, msg = qualite_connexion()
     New_upload=""
     New_Download=""
@@ -392,19 +393,30 @@ def MaJ_Label(Upload,Download,Latence,Connexion_Value,Page):
     
 
     Valeurs = Recuperation_donnees_DB("Base.db")
-    
-    for results  in Valeurs:
-      New_upload = Valeurs[1]
-      New_Download = Valeurs[2]
-      print(New_upload,New_Download)
+    for result in Valeurs:
+        New_upload = result[4]
+        New_Download = result[5]
 
+    Upload_label.destroy()
+    Upload_label=tk.Label(Page,text=f"Vitesse Upload: {New_upload}",font=("Arial",10,"bold"))
+    Upload_label.place(x=780, y=60)
+    Upload_label.update()
 
-    Upload.configure(text=New_upload)
-    Upload.update()
-    Download.configure(text=New_Download)
-    Download.update()
-    Latence.configure(text=New_Latence)
+    Download_label.destroy()
+    Download_label=tk.Label(Page,text=f"Vitesse de Download: {New_Download}",font=("Arial",10,"bold"))
+    Download_label.place(x=780, y=80)
+    Download_label.update()
+
+    Latence.destroy()
+    Latence=tk.Label(Page,text=f"Latence Moyenne :{New_Latence}",font=("Arial",10,"bold"))
+    Latence.place(x=780, y=40)
     Latence.update()
-    Connexion_Value.configure(text=New_Connexion_Value,fg=color)
+
+    Connexion_Value.destroy()
+    Connexion_value=tk.Label(Page,text=msg, font=("Arial",10,"bold"),fg=color)
+    Connexion_value.place(x=780, y=330)
     Connexion_Value.update()
+
     Page.update()
+
+

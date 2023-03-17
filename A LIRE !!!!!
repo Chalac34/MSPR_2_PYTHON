@@ -1,6 +1,11 @@
 Pour le speedtest on doit installer au préalable l'application speetest-cli
 https://www.speedtest.net/fr/apps/cli
 Pour creer L'exe il faut utiliser auto-py-to-exe qui faut lancer a partir de l'invite de commande
-auto-py-to-exe
+auto-py-to-exe en onedir
 
 FAIRE GAFFE A l'encodage avec VSCODE il faut encoder le fichier python en UTF8-BOM
+
+
+
+Commande en entiere de l'exe:
+pyinstaller --noconfirm --onedir --windowed --icon "C:/Users/b.dezord/source/repos/PythonApplication1/image/SEMAOS.ico" --name "SemaOS_X2" --add-data "C:/Users/b.dezord/source/repos/PythonApplication1/speedtest;speedtest/" --add-data "C:/Users/b.dezord/source/repos/PythonApplication1/log;log/" --add-data "C:/Users/b.dezord/source/repos/PythonApplication1/Base.db;." --add-data "C:/Users/b.dezord/source/repos/PythonApplication1/image;image/"  "C:/Users/b.dezord/source/repos/PythonApplication1/PythonApplication1.py"

@@ -2,7 +2,6 @@
 
 import socket
 import tkinter as tk
-from tkinter import ttk
 import CP
 import sqlite3
 import socket
@@ -192,6 +191,7 @@ def lancement():
 
         Page.resizable(False, False)
         Page.mainloop()
+        
  
         
 lancement()

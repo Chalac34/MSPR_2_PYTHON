@@ -243,7 +243,7 @@ def on_scan_ports(Zone_de_Texte,Page):
 ####SpeedTest
 DL=""
 UP=""
-def Speedtest(Zone_de_Texte,Page,Barre_progression,label_upload,label_download):
+def Speedtest(Zone_de_Texte,Page,label_upload,label_download):
     #Parametrage du texte
     Zone_de_Texte.config(state="normal")
     Zone_de_Texte.config(font=("Sans", 10))
@@ -255,7 +255,6 @@ def Speedtest(Zone_de_Texte,Page,Barre_progression,label_upload,label_download):
     cursor = conn.cursor()
 
     Template(Zone_de_Texte)
-    Barre_progression.start()
     Zone_de_Texte.insert(tk.END," Speedtest en cours,Veuillez patientez... ")
     Page.update()
     str_DL=""
